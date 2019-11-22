@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>  
+
+            const movesArray = ["rock", "paper", "scissors"]
+            function pickMove() {
+                let min = Math.ceil(0);
+                let max = Math.floor(2);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function computerPlay(moves) {
+                return moves[pickMove()];
+            }
+
+        </script>
+    </body>
+</html>
