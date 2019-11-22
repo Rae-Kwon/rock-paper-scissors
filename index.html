@@ -35,7 +35,35 @@
                 }
             }
 
-            
+            function game() {
+
+                let gameCount = 1;
+                let rounds = 6; //This is for 5 rounds.
+                let wins = 0;
+                let losses = 0;
+
+                while (gameCount < rounds) {
+
+                    const playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+                    const computerSelection = computerPlay(movesArray);
+
+                    let round = playRound(playerSelection, computerSelection);
+                    console.log(round)
+                    console.log("Round: " + gameCount)
+                    if (round == "Draw!") {
+                        gameCount = gameCount
+                    } else if (round.includes("Win")) {
+                        wins++;
+                        gameCount++;
+                    } else if (round.includes("Lose")) {
+                        losses++;
+                        gameCount++;
+                    }
+                }
+                console.log(("Wins: " + wins + " Losses: " + losses))
+            }
+
+            game()
 
         </script>
     </body>
