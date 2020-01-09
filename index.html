@@ -2,69 +2,27 @@
 <html>
     <head>
         <title></title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <script>  
+        <div id="game">
 
-            const movesArray = ["rock", "paper", "scissors"]
-            function pickMove() {
-                let min = Math.ceil(0);
-                let max = Math.floor(2);
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
+            <div id="instruction" class="gamenotification">Choose a move</div>
 
-            function computerPlay(moves) {
-                return moves[pickMove()];
-            }
+            <div class="choice">
+                <img src="assets/rock-left.png" alt="Rock" id="rock" class="player"></img>
+            </div>
+            <div class="choice">
+                <img src="assets/paper-left.png" alt="Paper" id="paper" class="player"></img>
+            </div>
+            <div class="choice">
+                <img src="assets/scissors-left.png" alt="Scissors" id="scissors" class="player"></img>
+            </div>
 
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection == "paper" && computerSelection == "rock") {
-                    return "You Win! Paper beats Rock";
-                } else if (playerSelection == "rock" && computerSelection == "paper") {
-                    return "You Lose! Paper beats Rock";
-                } else if (playerSelection == "rock" && computerSelection == "scissors") {
-                    return "You Win! Rock beats Scissors";
-                } else if (playerSelection == "scissors" && computerSelection == "rock") {
-                    return "You Lose! Rock beats Scissors";
-                } else if (playerSelection == "scissors" && computerSelection == "paper") {
-                    return "You Win! Scissors beats Paper";
-                } else if (playerSelection == "paper" && computerSelection == "scissors") {
-                    return "You Lose! Scissors beats Paper";
-                } else {
-                    return "Draw!";
-                }
-            }
+            <div id="result" class="game-notification bottom"></div>
+            <div id="round" class="game-notification bottom"></div>
+        </div>
 
-            function game() {
-
-                let gameCount = 1;
-                let rounds = 6; //This is for 5 rounds.
-                let wins = 0;
-                let losses = 0;
-
-                while (gameCount < rounds) {
-
-                    const playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
-                    const computerSelection = computerPlay(movesArray);
-
-                    let round = playRound(playerSelection, computerSelection);
-                    console.log(round)
-                    console.log("Round: " + gameCount)
-                    if (round == "Draw!") {
-                        gameCount = gameCount
-                    } else if (round.includes("Win")) {
-                        wins++;
-                        gameCount++;
-                    } else if (round.includes("Lose")) {
-                        losses++;
-                        gameCount++;
-                    }
-                }
-                console.log(("Wins: " + wins + " Losses: " + losses))
-            }
-
-            game()
-
-        </script>
+        <script src="game-logic.js"></script>
     </body>
 </html>

@@ -1,0 +1,26 @@
+html {
+    height: 100vh;
+    margin: 0;
+    background-color: #E8E8E8;
+}
+
+#game {
+    padding-top: 25vh;
+    text-align: center;
+}
+
+.choice {
+    display: inline-block;
+}
+
+img.player {
+    cursor: pointer;
+}
+
+img.player:hover {
+    transform: scale(1.08, 1.08);
+}
+
+img.player:active {
+    transform: translateY(4px);
+}
